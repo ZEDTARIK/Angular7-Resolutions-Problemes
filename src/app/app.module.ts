@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -9,6 +14,7 @@ import { ForumsComponent } from './components/forums/forums.component';
 import { ForumSearchComponent } from './components/forum-search/forum-search.component';
 import { ForumDetailsComponent } from './components/forum-details/forum-details.component';
 import { ForumOperationsComponent } from './components/forum-operations/forum-operations.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,12 @@ import { ForumOperationsComponent } from './components/forum-operations/forum-op
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
