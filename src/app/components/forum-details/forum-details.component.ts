@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ForumService } from './../../services/forum.service';
+import { Forum } from './../../models/forum';
 
 @Component({
   selector: 'app-forum-details',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForumDetailsComponent implements OnInit {
 
-  constructor() { }
+  forums: Forum[];
+
+  constructor(private formService: ForumService) { }
 
   ngOnInit() {
   }
