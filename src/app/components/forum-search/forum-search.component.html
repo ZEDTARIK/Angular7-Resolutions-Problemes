@@ -1,20 +1,32 @@
 <div class="row mt-2">
+  <div class="col-md-12">
+    
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">List of Tickets</div>
+        <div class="panel-body">
+        
+        <!-- Table -->
+        <table class="table table-hover table-borderless">
+          <thead>
+            <th>IT</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Solutions</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let forum of forums;trackBy: tracking">
+              <td>{{forum.technology}}</td>
+              <td>{{forum.descriptionProbleme}}</td>
+              <td>{{forum.priority}}</td>
+              <td>{{forum.resolutionProbleme}}</td>
+            </tr>
+          </tbody>
+        </table>
 
-  <div class="col-md-4">
-    <ul class="list-group">
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        Cras justo odio
-        <span class="badge badge-primary badge-pill">14</span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        Dapibus ac facilisis in
-        <span class="badge badge-primary badge-pill">2</span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        Morbi leo risus
-        <span class="badge badge-primary badge-pill">1</span>
-      </li>
-    </ul>
+        </div>
+
+    </div>
+    
   </div>
-
 </div>

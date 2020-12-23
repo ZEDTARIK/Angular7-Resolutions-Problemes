@@ -25,4 +25,9 @@ export class ForumSearchComponent implements OnInit {
     });
   }
 
+
+  tracking(forum: Forum) {
+    return forum ? forum.id : undefined ;
+  }
+
 }
