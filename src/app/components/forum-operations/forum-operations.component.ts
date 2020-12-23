@@ -31,9 +31,9 @@ export class ForumOperationsComponent implements OnInit {
   };
 
 
-  constructor(private formBuilder: FormBuilder, 
+  constructor(private formBuilder: FormBuilder,
     private forumService: ForumService,
-    private toastr :ToastrService
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -51,11 +51,11 @@ export class ForumOperationsComponent implements OnInit {
   }
 
   onSubmitForm(forumForm: FormGroup = this.forumForm) {
-   console.log(forumForm.value);
-   const resource = JSON.parse(JSON.stringify(this.forumForm.value));
-    if(forumForm.valid) {
-      this.forumService.addTicket(resource);
-      this.toastr.success('Ticket Add With SuccessuFully !');
+    const resource = JSON.parse(JSON.stringify(this.forumForm.value));
+    if (forumForm.valid) {
+      this.forumService.addTicket(resource)
+        .then((res) => this.toastr.success('Ticket Add With SuccessuFully !')).
+        catch((err) => this.toastr.warning(err));
     }
     this.onResetForm(forumForm);
   }
