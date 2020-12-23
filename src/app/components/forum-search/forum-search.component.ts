@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Forum } from 'src/app/models/forum';
 import { ForumService } from 'src/app/services/forum.service';
 
@@ -11,7 +12,8 @@ export class ForumSearchComponent implements OnInit {
 
   forums:Forum[];
   
-  constructor(private formService: ForumService) { }
+  constructor(private formService: ForumService,
+    private  router: Router) { }
 
   ngOnInit() {
     this.formService.getData()
@@ -28,6 +30,10 @@ export class ForumSearchComponent implements OnInit {
 
   tracking(forum: Forum) {
     return forum ? forum.id : undefined ;
+  }
+
+  onDetail(id: string) {
+     this.router.navigate(['/formus/detail/', id]);
   }
 
 }

@@ -13,6 +13,10 @@ export class ForumService {
     return this.angFireStore.collection('Forums_db').snapshotChanges();
   }
 
+  getDataById(id: string) {
+    return this.angFireStore.collection('Forums_db').doc(id).valueChanges();
+  }
+
   addTicket(resource: Forum) {
     return this.angFireStore.collection('Forums_db').add(resource);
   }

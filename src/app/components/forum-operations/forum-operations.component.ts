@@ -46,7 +46,7 @@ export class ForumOperationsComponent implements OnInit {
       dueDate: [''],
       resolutionProbleme: [null]
     });
-    this.onResetForm();
+    
     this.forumForm.valueChanges
       .subscribe(()=> this.logValidationErrors(this.forumForm));
   }

@@ -19,9 +19,9 @@
               <td>{{forum.technology}}</td>
               <td>{{forum.descriptionProbleme}}</td>
               <td>
-                <a routerLink="/">
+                <button class="btn btn-sm" (click)="onDetail(forum.id)">
                     <span class="glyphicon glyphicon-tasks"></span>
-                </a>
+                </button>
               </td>
               <td [ngSwitch]="forum.resolutionProbleme">
                 <span *ngSwitchCase="null" class="glyphicon glyphicon-thumbs-down" style="color: red;"></span>

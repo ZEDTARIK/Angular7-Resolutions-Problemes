@@ -10,7 +10,7 @@ const routes: Routes = [
     path: 'formus', children: [
       { path: '', component: ForumsComponent },
       { path: 'operation', component: ForumOperationsComponent },
-      { path: 'details/:id', component: ForumDetailsComponent }
+      { path: 'detail/:id', component: ForumDetailsComponent }
     ]
   },
   { path: '**', component: PageNotFoundComponent }
