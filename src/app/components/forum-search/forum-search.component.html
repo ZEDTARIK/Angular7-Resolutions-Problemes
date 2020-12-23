@@ -11,15 +11,22 @@
           <thead>
             <th>IT</th>
             <th>Description</th>
-            <th>Priority</th>
-            <th>Solutions</th>
+            <th>Details</th>
+            <th>Satatus</th>
           </thead>
           <tbody>
             <tr *ngFor="let forum of forums;trackBy: tracking">
               <td>{{forum.technology}}</td>
               <td>{{forum.descriptionProbleme}}</td>
-              <td>{{forum.priority}}</td>
-              <td>{{forum.resolutionProbleme}}</td>
+              <td>
+                <a routerLink="/">
+                    <span class="glyphicon glyphicon-tasks"></span>
+                </a>
+              </td>
+              <td [ngSwitch]="forum.resolutionProbleme">
+                <span *ngSwitchCase="null" class="glyphicon glyphicon-thumbs-down" style="color: red;"></span>
+                <span *ngSwitchDefault class="glyphicon glyphicon-thumbs-up" style="color: green;"></span>
+              </td>
             </tr>
           </tbody>
         </table>

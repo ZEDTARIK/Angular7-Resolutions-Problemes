@@ -42,7 +42,7 @@ export class ForumOperationsComponent implements OnInit {
       descriptionProbleme: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
       priority: [''],
       dueDate: [''],
-      resolutionProbleme: ['']
+      resolutionProbleme: [null]
     });
   }
 
