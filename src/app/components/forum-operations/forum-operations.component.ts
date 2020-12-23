@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ForumService } from 'src/app/services/forum.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -33,7 +34,8 @@ export class ForumOperationsComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private forumService: ForumService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -44,6 +46,9 @@ export class ForumOperationsComponent implements OnInit {
       dueDate: [''],
       resolutionProbleme: [null]
     });
+    this.onResetForm();
+    this.forumForm.valueChanges
+      .subscribe(()=> this.logValidationErrors(this.forumForm));
   }
 
   onResetForm(forumForm?: FormGroup): void {
@@ -54,7 +59,10 @@ export class ForumOperationsComponent implements OnInit {
     const resource = JSON.parse(JSON.stringify(this.forumForm.value));
     if (forumForm.valid) {
       this.forumService.addTicket(resource)
-        .then((res) => this.toastr.success('Ticket Add With SuccessuFully !')).
+        .then((res) => {
+          this.router.navigateByUrl('/formus');
+          this.toastr.success('Ticket Add With SuccessuFully !');
+        }).
         catch((err) => this.toastr.warning(err));
     }
     this.onResetForm(forumForm);
