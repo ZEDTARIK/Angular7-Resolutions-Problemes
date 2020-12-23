@@ -5,5 +5,5 @@ export interface Forum {
     assigniedByUserNameN?:string;
     priority?:string;
     dueDate?: Date;
-    resolutionProbleme:string;
+    resolutionProbleme?:string;
 }

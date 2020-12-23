@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: 'formus', children: [
       { path: '', component: ForumsComponent },
-      { path: 'operations', component: ForumOperationsComponent },
+      { path: 'operation', component: ForumOperationsComponent },
       { path: 'details/:id', component: ForumDetailsComponent }
     ]
   },
