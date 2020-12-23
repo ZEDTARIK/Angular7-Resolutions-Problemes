@@ -7,7 +7,7 @@ import { ForumDetailsComponent } from './components/forum-details/forum-details.
 
 const routes: Routes = [
   {
-    path: 'formus', children: [
+    path: 'forum', children: [
       { path: '', component: ForumsComponent },
       { path: 'operation', component: ForumOperationsComponent },
       { path: 'detail/:id', component: ForumDetailsComponent }

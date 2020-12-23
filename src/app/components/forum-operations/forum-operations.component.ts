@@ -60,7 +60,7 @@ export class ForumOperationsComponent implements OnInit {
     if (forumForm.valid) {
       this.forumService.addTicket(resource)
         .then((res) => {
-          this.router.navigateByUrl('/formus');
+          this.router.navigateByUrl('/forum');
           this.toastr.success('Ticket Add With SuccessuFully !');
         }).
         catch((err) => this.toastr.warning(err));

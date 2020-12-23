@@ -33,7 +33,7 @@ export class ForumSearchComponent implements OnInit {
   }
 
   onDetail(id: string) {
-     this.router.navigate(['/formus/detail/', id]);
+     this.router.navigate(['/forum/detail/', id]);
   }
 
 }
