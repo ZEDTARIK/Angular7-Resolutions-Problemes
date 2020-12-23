@@ -12,6 +12,7 @@ export class ForumDetailsComponent implements OnInit {
 
   id: string;
   forum : Forum;
+  showFormClick = false;
 
   constructor(private formService: ForumService, 
               private activedRoute: ActivatedRoute ) { }
@@ -22,6 +23,10 @@ export class ForumDetailsComponent implements OnInit {
     .subscribe((data) => {
         this.forum = data;
     });
+  }
+
+  showForm(): void {
+    this.showFormClick = !this.showFormClick;
   }
 
 }
