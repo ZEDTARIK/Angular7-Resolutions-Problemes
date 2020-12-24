@@ -29,4 +29,11 @@ export class ForumDetailsComponent implements OnInit {
     this.showFormClick = !this.showFormClick;
   }
 
+  addSolution() {
+    this.forum.id = this.id;
+    this.formService.updateTicket(this.forum)
+    .then(() => console.log('ok'))
+    .catch(err => console.log(err));
+  }
+
 }

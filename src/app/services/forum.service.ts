@@ -21,4 +21,8 @@ export class ForumService {
     return this.angFireStore.collection('Forums_db').add(resource);
   }
 
+  updateTicket(resource: Forum) {
+    return this.angFireStore.collection('Forums_db').doc(resource.id).update(resource)
+  }
+
 }

@@ -1,5 +1,5 @@
 export interface Forum {
-    id?:number;
+    id?:string;
     technology?: string;
     ticket?: string;
     descriptionProbleme?: string;
