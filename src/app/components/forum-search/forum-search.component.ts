@@ -10,7 +10,7 @@ import { ForumService } from 'src/app/services/forum.service';
 })
 export class ForumSearchComponent implements OnInit {
 
-  forums:Forum[];
+  forums:Forum[] = [];
   
   constructor(private formService: ForumService,
     private  router: Router) { }

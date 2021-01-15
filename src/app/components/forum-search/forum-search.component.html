@@ -1,23 +1,31 @@
 <div class="row mt-2">
   <div class="col-md-12">
-
     <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading">List of Tickets
-        <a routerLink="/forum/operation" style="margin-top: -4px;" class="btn btn-sm btn-success pull-right">Add</a>
+      <div class="panel-heading">
+        <a routerLink="/forum/operation" style="margin-top: -4px;" class="btn btn-sm btn-success">
+          <i class="fa fa-plus"></i>
+          Add New Ticket</a>
       </div>
       <div class="panel-body">
 
         <!-- Table -->
         <table class="table table-hover table-borderless">
           <thead>
-            <th>Ticket</th>
-            <th>Technology IT</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>Details</th>
+            <tr class="text-center">
+              <th>Ticket</th>
+              <th>Technology IT</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Details</th>
+            </tr>
           </thead>
           <tbody>
+            <tr *ngIf="forums.length==0">
+              <td class="font-italic text-center" colspan="5">
+                No Data Exist
+              </td>
+            </tr>
             <tr *ngFor="let forum of forums;trackBy: tracking">
               <td>{{forum.ticket}}</td>
               <td>{{forum.technology}}</td>
