@@ -1,41 +1,43 @@
 <div class="row mt-2">
   <div class="col-md-12">
-    
+
     <div class="panel panel-default">
       <!-- Default panel contents -->
       <div class="panel-heading">List of Tickets
         <a routerLink="/forum/operation" style="margin-top: -4px;" class="btn btn-sm btn-success pull-right">Add</a>
       </div>
-        <div class="panel-body">
-        
+      <div class="panel-body">
+
         <!-- Table -->
         <table class="table table-hover table-borderless">
           <thead>
-            <th>IT</th>
+            <th>Ticket</th>
+            <th>Technology IT</th>
             <th>Description</th>
+            <th>Status</th>
             <th>Details</th>
-            <th>Satatus</th>
           </thead>
           <tbody>
             <tr *ngFor="let forum of forums;trackBy: tracking">
+              <td>{{forum.ticket}}</td>
               <td>{{forum.technology}}</td>
               <td>{{forum.descriptionProbleme}}</td>
-              <td>
-                <button class="btn btn-sm" (click)="onDetail(forum.id)">
-                    <span class="glyphicon glyphicon-tasks"></span>
-                </button>
-              </td>
               <td [ngSwitch]="forum.resolutionProbleme">
                 <span *ngSwitchCase="null" class="glyphicon glyphicon-thumbs-down" style="color: red;"></span>
                 <span *ngSwitchDefault class="glyphicon glyphicon-thumbs-up" style="color: green;"></span>
+              </td>
+              <td>
+                <button class="btn btn-sm" (click)="onDetail(forum.id)">
+                  <span class="glyphicon glyphicon-tasks"></span>
+                </button>
               </td>
             </tr>
           </tbody>
         </table>
 
-        </div>
+      </div>
 
     </div>
-    
+
   </div>
 </div>

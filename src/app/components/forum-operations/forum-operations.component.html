@@ -8,6 +8,12 @@
         </div>
         <div class="panel-body">                
 
+          <div class="form-group">
+            <label for="technology" class="col-sm-2 control-label">N° Ticket</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control text-center" formControlName="ticket" readonly>
+            </div>
+          </div>
           <div class="form-group" [ngClass]="{'has-error': formErros.technology }">
             <label for="technology" class="col-sm-2 control-label">Technology</label>
             <div class="col-sm-6">

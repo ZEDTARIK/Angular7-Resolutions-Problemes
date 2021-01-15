@@ -31,6 +31,7 @@ export class ForumOperationsComponent implements OnInit {
     descriptionProbleme: ''
   };
 
+  // ticket = Math.floor(12 + Math.random() * 565241);
 
   constructor(private formBuilder: FormBuilder,
     private forumService: ForumService,
@@ -41,14 +42,15 @@ export class ForumOperationsComponent implements OnInit {
   ngOnInit() {
     this.forumForm = this.formBuilder.group({
       technology: ['', [Validators.required]],
+      ticket: [Math.floor(12 + Math.random() * 565241)],
       descriptionProbleme: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
       priority: [''],
       dueDate: [''],
       resolutionProbleme: [null]
     });
-    
+
     this.forumForm.valueChanges
-      .subscribe(()=> this.logValidationErrors(this.forumForm));
+      .subscribe(() => this.logValidationErrors(this.forumForm));
   }
 
   onResetForm(forumForm?: FormGroup): void {

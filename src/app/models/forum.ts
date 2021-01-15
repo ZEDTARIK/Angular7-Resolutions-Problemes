@@ -3,7 +3,7 @@ export interface Forum {
     technology?: string;
     ticket?: string;
     descriptionProbleme?: string;
-    assigniedByUserNameN?:string;
+    assigniedByUserName?:string;
     priority?:string;
     dueDate?: Date;
     resolutionProbleme?:string;
