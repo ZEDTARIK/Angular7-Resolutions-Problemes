@@ -36,6 +36,7 @@ export class ForumOperationsComponent implements OnInit {
   };
 
   priorities: string[] =  ['Medium', 'Higher', 'Critical', 'Low'];
+  technologies: string[] =  ['Angular', 'SQL Server', 'Python', '.NET', 'Laravel', 'PHP', 'Symphony'];
 
   // ticket = Math.floor(12 + Math.random() * 565241);
 
@@ -47,7 +48,7 @@ export class ForumOperationsComponent implements OnInit {
 
   ngOnInit() {
     this.forumForm = this.formBuilder.group({
-      technology: ['', [Validators.required]],
+      technology: ['Angular', [Validators.required]],
       ticket: [Math.floor(12 + Math.random() * 565241)],
       descriptionProbleme: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
       priority: ['Medium', Validators.required],
@@ -67,9 +68,9 @@ export class ForumOperationsComponent implements OnInit {
     const resource = JSON.parse(JSON.stringify(this.forumForm.value));
     if (forumForm.valid) {
       this.forumService.addTicket(resource)
-        .then((res) => {
-          this.router.navigateByUrl('/forum');
+        .then(() => {
           this.toastr.success('Ticket Add With SuccessuFully !');
+          this.router.navigateByUrl('/forum');
         }).
         catch((err) => this.toastr.warning(err));
     }
@@ -106,7 +107,9 @@ export class ForumOperationsComponent implements OnInit {
   }
 
   onSelect(event: TypeaheadMatch): void {
+    this.technologies = event.item;
     this.priorities = event.item;
+
   }
 
 }
