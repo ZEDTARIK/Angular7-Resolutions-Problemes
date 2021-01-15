@@ -13,7 +13,9 @@ const routes: Routes = [
       { path: 'detail/:id', component: ForumDetailsComponent }
     ]
   },
+  { path: '', component: ForumsComponent },
   { path: '**', component: PageNotFoundComponent }
+
 ];
 
 @NgModule({
