@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ForumService } from 'src/app/services/forum.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 
 @Component({
   selector: 'app-forum-operations',
@@ -23,20 +23,26 @@ export class ForumOperationsComponent implements OnInit {
       required: 'Description is Required',
       minlength: 'Description must be greater than 2 carateres',
       maxlength: 'Description must be less than 50 Carateres'
+    },
+    priority : {
+      required: 'Priority is Required',
     }
   };
 
   formErros = {
     technology: '',
-    descriptionProbleme: ''
+    descriptionProbleme: '',
+    priority : ''
   };
+
+  priorities: string[] =  ['Medium', 'Higher', 'Critical', 'Low'];
 
   // ticket = Math.floor(12 + Math.random() * 565241);
 
   constructor(private formBuilder: FormBuilder,
-    private forumService: ForumService,
-    private toastr: ToastrService,
-    private router: Router
+              private forumService: ForumService,
+              private toastr: ToastrService,
+              private router: Router
   ) { }
 
   ngOnInit() {
@@ -44,7 +50,7 @@ export class ForumOperationsComponent implements OnInit {
       technology: ['', [Validators.required]],
       ticket: [Math.floor(12 + Math.random() * 565241)],
       descriptionProbleme: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-      priority: [''],
+      priority: ['Medium', Validators.required],
       dueDate: [''],
       resolutionProbleme: [null]
     });
@@ -97,6 +103,10 @@ export class ForumOperationsComponent implements OnInit {
         this.logValidationErrors(abstractControl);
       }
     });
+  }
+
+  onSelect(event: TypeaheadMatch): void {
+    this.priorities = event.item;
   }
 
 }
