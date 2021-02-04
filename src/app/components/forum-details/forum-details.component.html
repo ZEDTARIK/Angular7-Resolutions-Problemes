@@ -40,9 +40,9 @@
       <div class="panel-body">
 
         <ul class="list-group">
-          <li class="list-group-item">
+          <li class="list-group-item" *ngFor="let res of forum?.resolutionProbleme ">
             <span class="badge">14</span>
-            {{forum?.resolutionProbleme}}
+            {{res}}
           </li>
         </ul>
         

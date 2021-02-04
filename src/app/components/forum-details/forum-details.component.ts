@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ForumService } from './../../services/forum.service';
-import { Forum } from './../../models/forum';
+import { Forum } from '../../models/Ticket';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
